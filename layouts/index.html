@@ -1,0 +1,170 @@
+{{ define "main" }}
+
+<div class="team-page">
+
+    <div class="team-logo">
+        {{ $logo := resources.Get "images/logo.png" }}
+
+        {{ if $logo }}
+        <img src="{{ $logo.RelPermalink }}" alt="Logo">
+        {{ else }}
+        <p>Logo not found</p>
+        {{ end }}
+    </div>
+
+    <section class="activity">
+
+        <h2>Fundacja Painting's not dead</h2>
+
+        <p>
+        <ul>
+            <li>NIP 5892113502</li>
+            <li>KRS 0001255531</li>
+            <li>REGON 545308569</li>
+            <li>31 1140 2004 0000 3902 8688 5109</li>
+            <li><a href="mailto:mikolajharmoza@w.pl">kontakt <u> e-mail</u></a></li>
+            <li><a href="#" id="open-statute"><u>statut fundacji</u></a></li>
+        </ul>
+        </p>
+
+    </section>
+
+    <!-- <section class="team">
+
+        {{ $people := slice
+        (dict
+        "id" "mikolaj"
+        "image" "mikolaj-harmoza.jpg"
+        "name" "Mikołaj Harmoza"
+        "bio" "artysta malarz, wykładowca ASP w Gdańsku"
+        )
+
+        (dict
+        "id" "joanna"
+        "image" "osoba2.jpg"
+        "name" "Joanna da Costa"
+        "bio" "bio2")
+
+        (dict
+        "id" "person3"
+        "image" "osoba3.jpg"
+        "name" "Jarosław Bauć"
+        "bio" "bio3"
+        )
+
+        (dict
+        "id" "person4"
+        "image" "osoba4.jpg"
+        "name" "Olgierd Szopiński"
+        "bio" "bio4"
+        )
+        }}
+
+
+        {{ range $people }}
+
+        {{ $portrait := resources.Get (printf "images/%s" .image) }}
+
+        <div class="member">
+
+            {{ if $portrait }}
+
+            <a href="#" class="member-link" data-member="{{ .id }}" data-image="{{ $portrait.RelPermalink }}"
+                data-name="{{ .name }}" data-bio="{{ .bio }}" onclick="return false;">
+                <img src="{{ ($portrait.Fill " 400x533").RelPermalink }}" alt="{{ .name }}">
+
+            </a>
+            <h3>{{ .name }}</h3>
+
+            {{ else }}
+
+            <p>
+                Missing image: {{ .image }}
+            </p>
+
+            {{ end }}
+
+        </div>
+
+        {{ end }}
+
+    </section> -->
+
+
+
+</div>
+
+<div id="member-modal" class="member-modal">
+    <div class="member-modal-content">
+        <button id="modal-close">&times;</button>
+        <img id="modal-image">
+        <h2 id="modal-name"></h2>
+        <p id="modal-bio"></p>
+    </div>
+</div>
+
+<div id="statute-modal" class="member-modal">
+    <div class="statute-content">
+        <button id="statute-close">&times;</button>
+        {{ partial "statut.html" . }}
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("member-modal");
+        const modalImage = document.getElementById("modal-image");
+        const modalName = document.getElementById("modal-name");
+        const modalBio = document.getElementById("modal-bio");
+        const closeButton = document.getElementById("modal-close");
+        const statuteModal = document.getElementById("statute-modal");
+        const statuteOpen = document.getElementById("open-statute");
+        const statuteClose = document.getElementById("statute-close");
+
+        document.querySelectorAll(".member-link").forEach(link => {
+            link.addEventListener("click", () => {
+                modalImage.src = link.dataset.image;
+                modalImage.alt = link.dataset.name;
+
+                modalName.textContent = link.dataset.name;
+                modalBio.textContent = link.dataset.bio;
+
+                modal.classList.add("open");
+            });
+        });
+
+        closeButton.addEventListener("click", () => {
+            modal.classList.remove("open");
+        });
+
+        modal.addEventListener("click", (event) => {
+            if (event.target == modal) {
+                modal.classList.remove("open");
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key == "Escape") {
+                modal.classList.remove("open");
+                statuteModal.classList.remove("open");
+            }
+        });
+
+        statuteOpen.addEventListener("click", (e) => {
+            e.preventDefault();
+            statuteModal.classList.add("open");
+        });
+
+        statuteClose.addEventListener("click", () => {
+            statuteModal.classList.remove("open");
+        });
+
+        statuteModal.addEventListener("click", (e) => {
+            if (e.target === statuteModal) {
+                statuteModal.classList.remove("open");
+            }
+        });
+    });
+</script>
+
+{{ end }}

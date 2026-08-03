@@ -1,0 +1,4 @@
+baseURL = 'https://pnd.org.pl/'
+locale = 'pl-PL'
+title = 'Fundacja PND'
+theme = "blowfish"
