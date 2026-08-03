@@ -1,5 +1,6 @@
 {{ define "main" }}
-
+{{ $customCSS := resources.Get "css/custom.css" }}
+<link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
 <div class="team-page">
 
     <div class="team-logo">
