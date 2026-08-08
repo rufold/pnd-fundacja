@@ -280,9 +280,20 @@
 }
 
 .statute-text ol {
-    list-style: decimal;
     margin: 1rem 0 1rem 2rem;
     padding-left: 1.5rem;
+}
+
+.statute-text > ol {
+    list-style-type: decimal !important;
+}
+
+.statute-text > ol > li > ol {
+    list-style-type: lower-alpha !important;
+}
+
+.statute-text > ol > li > ol > li > ol {
+    list-style-type: lower-roman !important;
 }
 
 .statute-text li {
