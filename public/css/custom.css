@@ -1,7 +1,3 @@
-/* =========================
-   PND Creative Team Page
-   ========================= */
-
 .team-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -34,7 +30,7 @@
 }
 
 
-/* Individual artists */
+/* Artists */
 
 .member {
     text-align: center;
@@ -57,7 +53,7 @@
 }
 
 
-/* subtle artistic hover */
+/* hover */
 
 .member:hover img {
     transform: scale(1.03);
@@ -75,7 +71,7 @@
 }
 
 
-/* Activity section */
+/* Activity */
 
 .activity {
     max-width: 850px;
@@ -105,7 +101,7 @@
 }
 
 
-/* A subtle divider */
+/* Activity divider */
 
 .activity::before {
     content: "";
@@ -149,89 +145,61 @@
 /* ---------- Modal ---------- */
 
 .member-modal {
-
     position: fixed;
     inset: 0;
-
     display: none;
-
     justify-content: center;
     align-items: center;
-
     background: rgba(0, 0, 0, .8);
     backdrop-filter: blur(8px);
-
     z-index: 9999;
-
     padding: 2rem;
 
 }
 
 
 .member-modal.open {
-
     display: flex;
-
 }
 
 
 .member-modal-content {
-
-    background: rgb(63, 49, 49);
-
+    /* background: rgb(63, 49, 49); */
     max-width: 900px;
     width: 100%;
-
     display: grid;
     grid-template-columns: 350px 1fr;
-
     gap: 2rem;
-
     padding: 2rem;
-
     position: relative;
-
     border-radius: 6px;
-
 }
 
 
 #modal-image {
-
     width: 100%;
     display: block;
-
 }
 
 
 #modal-name {
-
     margin-top: 0;
-
     font-size: 2rem;
-
 }
 
 
 #modal-bio {
-
     line-height: 1.8;
-
 }
 
 
 #modal-close {
-
     position: absolute;
-
     right: 20px;
     top: 20px;
-
     background: none;
     border: none;
-
     font-size: 2rem;
-
     cursor: pointer;
 
 }
@@ -242,7 +210,8 @@
     max-height: 85vh;
     overflow-y: auto;
 
-    /* background: rgb(52, 49, 63); */
+    /* background: rgb(52, 49, 63) !important; */
+    color: white !important;
     padding: 2rem;
     position: relative;
     border-radius: 6px;
@@ -267,6 +236,13 @@
     margin: 2rem 0 1rem;
 }
 
+.statute-content h2,
+.statute-content h3,
+.statute-content p,
+.statute-content li {
+    color: white !important;
+}
+
 #statute-close {
     position: absolute;
     top: 15px;
@@ -274,6 +250,8 @@
 
     background: none;
     border: none;
+
+    color: white !important;
 
     font-size: 2rem;
     cursor: pointer;
@@ -284,15 +262,15 @@
     padding-left: 1.5rem;
 }
 
-.statute-text > ol {
+.statute-text>ol {
     list-style-type: decimal !important;
 }
 
-.statute-text > ol > li > ol {
+.statute-text>ol>li>ol {
     list-style-type: lower-alpha !important;
 }
 
-.statute-text > ol > li > ol > li > ol {
+.statute-text>ol>li>ol>li>ol {
     list-style-type: lower-roman !important;
 }
 
