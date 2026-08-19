@@ -5,7 +5,7 @@
   class="scroll-smooth"
   data-default-appearance="dark"
   data-auto-appearance="false"><head>
-	<meta name="generator" content="Hugo 0.164.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=12110&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.164.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=2832&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="pl-PL">
@@ -35,7 +35,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:12110/">
+  <link rel="canonical" href="http://localhost:2832/">
   
   
     
@@ -47,7 +47,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:12110/">
+  <meta property="og:url" content="http://localhost:2832/">
 	<meta property="og:site_name" content="Fundacja PND">
 	<meta property="og:title" content="Fundacja Painting&#39;s not dead">
 	<meta property="og:locale" content="pl_PL">
@@ -212,11 +212,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "http://localhost:12110/",
+    "@id": "http://localhost:2832/",
     "name": "Fundacja PND",
     
     "inLanguage": "pl-PL",
-    "url": "http://localhost:12110/",
+    "url": "http://localhost:2832/",
     
     "publisher" : {
       "@type": "Person",
@@ -647,18 +647,6 @@
 
         
   
-    <div class="flex flex-wrap gap-4 mt-8 pt-8 border-t bf-border-color">
-      
-        <a
-          href="https://mikolaj.harmoza.pl/sztuka-niewidzenia/"
-          aria-label="sztuka niewidzenia"
-          class="inline-flex items-center gap-2 px-2 py-2 bf-icon-color-hover rounded-full text-sm">
-          
-          <span title="">sztuka niewidzenia</span>
-        </a>
-      
-    </div>
-  
 
         
   
@@ -678,25 +666,6 @@
   </div>
 </div>
 
-
-  <div
-    class="main-menu flex pb-3 flex-col items-end justify-between md:justify-start space-x-3 ">
-    <div class="hidden md:flex items-center space-x-5">
-      
-        <a
-          href="https://mikolaj.harmoza.pl/sztuka-niewidzenia/"
-          
-            target="_blank"
-          
-          class="flex items-center bf-icon-color-hover">
-          
-          <span class="text-xs font-light" title="">
-            sztuka niewidzenia
-          </span>
-        </a>
-      
-    </div>
-  </div>
 
 
 
@@ -723,7 +692,7 @@
             <li>REGON 545308569</li>
             
             <li>kontakt e-mail: <a href="mailto:harmozamikolaj@gmail.com"><u>harmozamikolaj@gmail.com</u></a></li>
-            <li><a href="#" id="open-statute"><u>statut fundacji</u></a></li>
+            
         </ul>
         </p>
 
@@ -743,15 +712,6 @@
 
 
 
-
-<div id="member-modal" class="member-modal">
-    <div class="member-modal-content">
-        <button id="modal-close">&times;</button>
-        <img id="modal-image">
-        <h2 id="modal-name"></h2>
-        <p id="modal-bio"></p>
-    </div>
-</div>
 
 <div id="statute-modal" class="member-modal">
     <div class="statute-content">
@@ -1407,63 +1367,62 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const modal = document.getElementById("member-modal");
-        const modalImage = document.getElementById("modal-image");
-        const modalName = document.getElementById("modal-name");
-        const modalBio = document.getElementById("modal-bio");
-        const closeButton = document.getElementById("modal-close");
+
         const statuteModal = document.getElementById("statute-modal");
         const statuteOpen = document.getElementById("open-statute");
         const statuteClose = document.getElementById("statute-close");
+        const statuteMenuLink = document.querySelector(".statute-menu-link");
 
-        document.querySelectorAll(".member-link").forEach(link => {
-            link.addEventListener("click", () => {
-                modalImage.src = link.dataset.image;
-                modalImage.alt = link.dataset.name;
 
-                modalName.textContent = link.dataset.name;
-                modalBio.textContent = link.dataset.bio;
-
-                modal.classList.add("open");
-            });
-        });
-
-        document.querySelector(".statute-menu-link")?.addEventListener("click", (event) => {
+         
+        function openStatute(event) {
             event.preventDefault();
             statuteModal.classList.add("open");
-        })
+        }
 
-        closeButton.addEventListener("click", () => {
-            modal.classList.remove("open");
-        });
 
-        modal.addEventListener("click", (event) => {
-            if (event.target == modal) {
-                modal.classList.remove("open");
-            }
-        });
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key == "Escape") {
-                modal.classList.remove("open");
-                statuteModal.classList.remove("open");
-            }
-        });
-
-        statuteOpen.addEventListener("click", (e) => {
-            e.preventDefault();
-            statuteModal.classList.add("open");
-        });
-
-        statuteClose.addEventListener("click", () => {
+         
+        function closeStatute() {
             statuteModal.classList.remove("open");
-        });
+        }
 
-        statuteModal.addEventListener("click", (e) => {
-            if (e.target === statuteModal) {
-                statuteModal.classList.remove("open");
+
+         
+        if (statuteOpen) {
+            statuteOpen.addEventListener("click", openStatute);
+        }
+
+
+        document.addEventListener("click", (event) => {
+            const menuLink = event.target.closest('a[href="#statute"]');
+
+            if (menuLink) {
+                openStatute(event);
             }
         });
+
+
+         
+        if (statuteClose) {
+            statuteClose.addEventListener("click", closeStatute);
+        }
+
+
+         
+        statuteModal.addEventListener("click", (event) => {
+            if (event.target === statuteModal) {
+                closeStatute();
+            }
+        });
+
+
+         
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeStatute();
+            }
+        });
+
     });
 </script>
 

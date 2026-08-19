@@ -8,13 +8,6 @@ name = "dorobek"
 pageRef = "dorobek"
 weight = 2
 
-[[subnavigation]]
-name = "sztuka niewidzenia"
-url = "https://mikolaj.harmoza.pl/sztuka-niewidzenia/"
-
-
-
-
 [[main]]
 name = "o nas"
 pageRef = "about"
