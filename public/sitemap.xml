@@ -3,9 +3,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:11881/</loc>
+    <loc>http://localhost:12110/</loc>
   </url>
   <url>
-    <loc>http://localhost:11881/statut/</loc>
+    <loc>http://localhost:12110/statut/</loc>
   </url>
 </urlset>

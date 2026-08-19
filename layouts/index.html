@@ -3,6 +3,26 @@
 <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
 <div class="team-page">
 
+
+
+    <section class="activity">
+
+        <h2>Fundacja Painting's not dead</h2>
+        <h2>31 1140 2004 0000 3902 8688 5109</h2>
+
+        <p>
+        <ul>
+            <li>NIP 5892113502</li>
+            <li>KRS 0001255531</li>
+            <li>REGON 545308569</li>
+            <!-- <li>31 1140 2004 0000 3902 8688 5109</li> -->
+            <li>kontakt e-mail: <a href="mailto:harmozamikolaj@gmail.com"><u>harmozamikolaj@gmail.com</u></a></li>
+            <li><a href="#" id="open-statute"><u>statut fundacji</u></a></li>
+        </ul>
+        </p>
+
+    </section>
+
     <div class="team-logo">
         {{ $logo := resources.Get "images/logo2.png" }}
 
@@ -13,87 +33,18 @@
         {{ end }}
     </div>
 
-    <section class="activity">
-
-        <h2>Fundacja Painting's not dead</h2>
-
-        <p>
-        <ul>
-            <li>NIP 5892113502</li>
-            <li>KRS 0001255531</li>
-            <li>REGON 545308569</li>
-            <li>31 1140 2004 0000 3902 8688 5109</li>
-            <li><a href="mailto:mikolajharmoza@wp.pl">kontakt <u> e-mail</u></a></li>
-            <li><a href="#" id="open-statute"><u>statut fundacji</u></a></li>
-        </ul>
-        </p>
-
-    </section>
-
-    <!-- <section class="team">
-
-        {{ $people := slice
-        (dict
-        "id" "mikolaj"
-        "image" "mikolaj-harmoza.jpg"
-        "name" "Mikołaj Harmoza"
-        "bio" "artysta malarz, wykładowca ASP w Gdańsku"
-        )
-
-        (dict
-        "id" "joanna"
-        "image" "osoba2.jpg"
-        "name" "Joanna da Costa"
-        "bio" "bio2")
-
-        (dict
-        "id" "person3"
-        "image" "osoba3.jpg"
-        "name" "Jarosław Bauć"
-        "bio" "bio3"
-        )
-
-        (dict
-        "id" "person4"
-        "image" "osoba4.jpg"
-        "name" "Olgierd Szopiński"
-        "bio" "bio4"
-        )
-        }}
-
-
-        {{ range $people }}
-
-        {{ $portrait := resources.Get (printf "images/%s" .image) }}
-
-        <div class="member">
-
-            {{ if $portrait }}
-
-            <a href="#" class="member-link" data-member="{{ .id }}" data-image="{{ $portrait.RelPermalink }}"
-                data-name="{{ .name }}" data-bio="{{ .bio }}" onclick="return false;">
-                <img src="{{ ($portrait.Fill " 400x533").RelPermalink }}" alt="{{ .name }}">
-
-            </a>
-            <h3>{{ .name }}</h3>
-
-            {{ else }}
-
-            <p>
-                Missing image: {{ .image }}
-            </p>
-
-            {{ end }}
-
-        </div>
-
-        {{ end }}
-
-    </section> -->
-
-
-
 </div>
+
+<!-- <div class ="news-page">
+
+    newsy w formie kafli
+
+</div> -->
+
+<!-- <div class = "contact-page">
+
+</div> -->
+
 
 <div id="member-modal" class="member-modal">
     <div class="member-modal-content">
@@ -133,6 +84,11 @@
                 modal.classList.add("open");
             });
         });
+
+        document.querySelector(".statute-menu-link")?.addEventListener("click", (event) => {
+            event.preventDefault();
+            statuteModal.classList.add("open");
+        })
 
         closeButton.addEventListener("click", () => {
             modal.classList.remove("open");

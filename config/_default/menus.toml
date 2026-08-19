@@ -1,0 +1,54 @@
+[[main]]
+name = "aktualności"
+pageRef = "news"
+weight = 1
+
+[[main]]
+name = "dorobek"
+pageRef = "dorobek"
+weight = 2
+
+[[subnavigation]]
+name = "sztuka niewidzenia"
+url = "https://mikolaj.harmoza.pl/sztuka-niewidzenia/"
+
+
+
+
+[[main]]
+name = "o nas"
+pageRef = "about"
+weight = 3
+
+[[main]]
+name = "sklep"
+url = "https://sklep.harmoza.pl/"
+weight = 4
+
+[[main]]
+name = "statut"
+url = "#statute"
+weight = 5
+[main.params]
+class = "statute-menu-link"
+
+[[main]]
+name = ""
+pre = "facebook"
+url = "https://www.facebook.com/profile.php?id=100001093936988"
+weight = 10
+
+
+[[main]]
+name = " "
+pre = "instagram"
+url = "..."
+weight = 11
+
+
+# linki do fb, instagrama, 
+
+
+# # name = "harmoza.pl"
+# # url = "https://harmoza.pl/"
+# weight = 10
